@@ -1,76 +1,102 @@
+% --------------------------------------------------------------------------
+% This template is available on the sites:
+% https://www.overleaf.com/read/rpkkfchcnbsc
+% https://www.overleaf.com/latex/templates/itmo-beamer-theme/fpttrgnmqwsb
+% https://github.com/AlexZabashta/ITMO-Beamer-theme
+% --------------------------------------------------------------------------
+
+% Attention!!!
+% This document was created only as an example of using ITMO beamer styling.
+% Don't use it as a Latex or beamer tutorial!
+% Check out the capabilities of Latex and beamer (at least basic) independently.
+
+
 \documentclass[aspectratio=169]{beamer}
 \usepackage{ITMOtheme}
 
-% Подключите этот пакет, чтобы использовать русский язык.
-%\usepackage[english,russian]{babel}
 
-% Если будет предупреждение "Package hyperref Warning: Glyph not defined in PD1 encoding"
-%\hypersetup{unicode=true}
-
-
-%Use this package to automatically format references.
-\usepackage[style=mla]{biblatex}
-\addbibresource{references.bib}
+% Use this package to automatically format references.
+% \usepackage[style=mla]{biblatex}
+% \addbibresource{references.bib}
 
 
-\titlegraphic{\includegraphics[scale=.8]{itmo_logo_en_vert_blue.pdf}}
-%\titlegraphic{\includegraphics[scale=.8]{itmo_logo_rus_vert_blue.pdf}}
+\titlegraphic{\includegraphics[scale=.8]{itmo/logo_en_vert_blue.pdf}}
+
+% The fields 'title', 'author', 'subject', 'keywords' are used to generate a PDF document.
+% It is recommended that you fill them in, even if you are creating your title slide manually.
 
 % use \title[short title]{full title}
 \title[ITMO LaTex]{ITMO University LaTex Presentation}
 
 %\subtitle[short subtitle]{long subtitle}
 
-\author[Zabashta A.]{Alexey Zabashta}
+\author[LastName F.]{FirstName LastName}
 
 %\institute[short institute]{long institute}
 
-\where{ITMO University, St. Petersburg, Russia}
+\where{St. Petersburg}
 \date{\today}
 
-%I don’t know if this affects anything.
+
 \subject{example}
 \keywords{ITMO University, LaTex teamplate, beamer}
 
 
+% By default, the title of the presentation (\inserttitle) is written at the bottom of each slide.
+% This text can be replaced with something else, for example:
+\setfootlinetext{\insertsection}
+
+
 \begin{document}
+
+
+% [plain] - modifier to create a blank slide (without bottom bar).
+% Ideal for creating the first (title) and last slide with a polygonal background,
+% or for transitional slides between chapters or slides with a table of contents.
+
+% \titlepage - command for automatic generation of title slide content.
 
 \begin{frame}[plain]
     \titlepage
 \end{frame}
 
-
 % You can use custom title, if you want.
-%\begin{frame}[plain]
-%	\itmopolygons{
-%	\vfill
-%		\includegraphics[height=0.2\paperheight]{itmo_white_rus.png}
-%	\vfill
-%		\usebeamerfont{title}{  \inserttitle\par} 
-%	\vfill
-%		\usebeamerfont{subtitle}{\insertsubtitle\par}
-%	\vfill
-%		\insertauthor\par
-%	\vfill
-%		\insertinstitute\par
-%	\vfill
-%		\insertplace  \;  \insertdate
-%}
-%\end{frame}
+% Or you can you modify the .sty file.
 
 
-
-\begin{frame}{Outline}
- \tableofcontents
+\begin{frame}[plain]
+	\itmopolygons{
+	\vfill
+		\includegraphics[scale=.8]{itmo/logo_en_vert_blue.pdf}
+	\vfill
+		\usebeamerfont{title}{  \inserttitle\par} 
+	\vfill
+		Custom title slide
+	\vfill
+		\insertauthor\par
+	\vfill
+		\insertplace  \;  \insertdate
+}
 \end{frame}
 
+
+% Avoid making a table of contents in short presentations.
+% Transitions between chapters are best done manually.
+
+\AtBeginSection[]
+{
+    \begin{frame}[plain]
+        \frametitle{Outline}
+        \Large
+        \tableofcontents[currentsection]
+    \end{frame}
+}
 
 
 \begin{frame}{Footcite and Footnote}
 
-You can use \textbackslash footcite command to automatically formatted citation. For example\footcite{kopka1995guide}.
+Example of footnote \footnote{For example, it can be used for citation.}.
 
-Or you can use \textbackslash footnote command for manual formatting or another footnote\footnote{Some text in a footnote.}.
 \end{frame}
 
 
@@ -175,7 +201,7 @@ $a \times b$ & $0$ &  $1$ &  $i$ & $-1$ & $-i$ \\ \hline
 \frametitle{Theorem}
 \begin{theorem}[Fermat's Last Theorem]
 \begin{equation}
-    \forall n, x, y, z \in \mathbb{N}: n > 2 \Rightarrow x^n + y^n \neq z^n
+    \forall n, x, y, z \in \mathbb{N}: \mathbf{n > 2} \Rightarrow x^n + y^n \neq z^n
 \end{equation}
 \end{theorem}
 I have discovered a truly remarkable proof of this theorem which this frame is too small to contain.
@@ -198,11 +224,16 @@ I have discovered a truly remarkable proof of this theorem which this frame is t
         \vfill
         \Huge{The End}
         \vfill
-        \includegraphics[scale=.5]{slogan.pdf}
+        \includegraphics[scale=.5]{itmo/slogan.pdf}
     }
 \end{frame}
 
-% Use this command to manually change number of pages.
-%\setcounter{page}{11} 
+
+\begin{frame}[noframenumbering]
+\frametitle{Appendix}
+    \large
+    \textbf{noframenumbering} modifier can be used for additional slides at the end,  so that they are not taken into account when numbering.
+\end{frame}
+
 
 \end{document}

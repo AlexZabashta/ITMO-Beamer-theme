@@ -1,9 +1,16 @@
+% --------------------------------------------------------------------------
+% This template is available on the sites:
+% https://www.overleaf.com/read/rpkkfchcnbsc
+% https://www.overleaf.com/latex/templates/itmo-beamer-theme/fpttrgnmqwsb
+% https://github.com/AlexZabashta/ITMO-Beamer-theme
+% --------------------------------------------------------------------------
+
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{amsmath,amssymb}
 \usepackage{xcolor}
-
+\usepackage{tikz}
 
 %\usepackage{fontspec}
 %\usepackage{iflang}
@@ -40,7 +47,8 @@
 \setbeamercolor{block title example}{fg=ITMOgreen}
 
 \setbeamercolor{caption name}{fg=ITMOblue}
-\setbeamercolor{footline}{fg=ITMOblue}
+\setbeamercolor{footline}{fg=ITMOwhite,bg=ITMOblue}
+\setbeamercolor{headline}{fg=ITMOwhite,bg=ITMOblue}
 
 \setbeamertemplate{itemize item}[circle]
 \setbeamertemplate{itemize subitem}[circle]
@@ -56,68 +64,58 @@
 
 
 \newcommand{\itmopolygons}[1]{
-    \begin{picture}(0,0)
-		\put(-32,-153.65){
-			\includegraphics[height=\paperheight,width=\paperwidth]{itmo_polygons.pdf}
-		}
-		\put(-28.3,110){%
-			\begin{minipage}[t][\paperheight][c]{\paperwidth}
-				\begin{center}
-				    \usebeamercolor[fg]{title}{ 
-    				    #1
-                    }
-    	    	\end{center}
-			\end{minipage}
-		}
-    \end{picture}
+\tikz[remember picture,overlay] \node at (current page.center){
+	\includegraphics[height=\paperheight,width=\paperwidth]{itmo/polygons.pdf}
+};
+\tikz \node at (current page.center){
+	\begin{minipage}[t][0.97\paperheight][c]{0.843\paperwidth}
+		\begin{center}
+			\usebeamercolor[fg]{title}{
+				#1
+			}
+		\end{center}
+	\end{minipage}
+};
 }
 
 
 \setbeamertemplate{title page}{
 	\itmopolygons{
-		\vfill
-		\usebeamerfont{titlegraphic}{\inserttitlegraphic\par}
-		\vfill
-		\usebeamerfont{title}{  \inserttitle\par} 
-		\vfill
-		\usebeamerfont{subtitle}{\insertsubtitle\par}
-		\vfill
-		\insertauthor\par
-		\vfill
-		\insertinstitute\par
-		\vfill
-		\ifx\insertplace\empty
-			\insertdate
-		\else
-			\insertplace  \;  \insertdate
-		\fi
+	    \begin{center}
+	        \vfill
+    		\usebeamerfont{titlegraphic}{\inserttitlegraphic}
+    		\vfill
+    		\usebeamerfont{title}{  \inserttitle} 
+    		\vfill
+    		\usebeamerfont{subtitle}{\insertsubtitle}
+    		\vfill
+    		\insertauthor
+    		\vfill
+    		\insertinstitute
+    		\vfill
+    		\ifx\insertplace\empty
+    			\insertdate
+    		\else
+    			\insertplace,  \insertdate
+    		\fi
+		\end{center}
 	}
 }
-
-%\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
-%\setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
-%\setbeamertemplate{itemize subsubitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
-
-
-%\defbeamertemplate*{headline}{miniframes theme no subsection}{
-    %\begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
-    %\end{beamercolorbox}
-    %\begin{beamercolorbox}{section in head/foot}
-    %    \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
-    %\end{beamercolorbox}%
-    %\begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
-    %\end{beamercolorbox}
-    %4header
-%}
-
 
 
 \def \insertplace {}
 \newcommand{\where}[1]{ \def \insertplace {#1} }
 
 
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[page number]{}
+\def \insertfootlinetext {\inserttitle}
+\newcommand{\setfootlinetext}[1]{ \def \insertfootlinetext {#1} }
 
-\setbeamerfont{footline}{size=\bf\small}
+
+\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{footline}[page number]{}
+\setbeamerfont{footnote}{size=\scriptsize}
+
+\setbeamertemplate{footline}{\colorbox{ITMOblue}{\begin{minipage}[c][0.04\textheight][c]{0.83\paperwidth}\hskip1em\insertfootlinetext\hfill\end{minipage}}\colorbox{ITMOred}{\begin{minipage}[c][0.04\textheight][c]{0.15\paperwidth}\begin{center}\small\textbf{\insertframenumber/\inserttotalframenumber}\end{center}\end{minipage}}}
+%
+\setbeamerfont{footline}{size=\footnotesize}
 \setbeamerfont{frametitle}{size=\bf\Large}
