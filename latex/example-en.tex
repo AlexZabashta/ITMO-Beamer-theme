@@ -1,5 +1,5 @@
 % --------------------------------------------------------------------------
-% Version 2.1
+% Version 3.0
 % This template is available on the sites:
 % https://www.overleaf.com/read/rpkkfchcnbsc
 % https://www.overleaf.com/latex/templates/itmo-beamer-theme/fpttrgnmqwsb
@@ -21,7 +21,7 @@
 % \addbibresource{references.bib}
 
 
-\titlegraphic{\includegraphics[scale=.8]{itmo/logo_en_vert_blue.pdf}}
+\titlegraphic{\includegraphics[width=0.2\textwidth]{itmo/logo_basic_english_white.pdf}}
 
 % The fields 'title', 'author', 'subject', 'keywords' are used to generate a PDF document.
 % It is recommended that you fill them in, even if you are creating your title slide manually.
@@ -43,10 +43,6 @@
 \keywords{ITMO University, LaTex teamplate, beamer}
 
 
-% By default, the title of the presentation (\inserttitle) is written at the bottom of each slide.
-% This text can be replaced with something else, for example:
-\setfootlinetext{\insertsection}
-
 
 \begin{document}
 
@@ -66,9 +62,9 @@
 
 
 \begin{frame}[plain]
-	\itmopolygons{
+	\itmobackgroundsnakes{
 	\vfill
-		\includegraphics[scale=.8]{itmo/logo_en_vert_blue.pdf}
+		\includegraphics[width=0.2\textwidth]{itmo/logo_basic_english_white.pdf}
 	\vfill
 		\usebeamerfont{title}{  \inserttitle\par} 
 	\vfill
@@ -138,7 +134,7 @@ Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenati
 
 You can use main official predefined colors 
 \textcolor{ITMOblue}{ITMOblue} and \textcolor{ITMOred}{ITMOred}, and also
- \textcolor{ITMOorange}{ITMOorange}, \textcolor{ITMOsky}{ITMOsky}, \textcolor{ITMOpistachio}{ITMOpistachio}, \textcolor{ITMOaqua}{ITMOaqua}, \textcolor{ITMOice}{ITMOice}, \textcolor{ITMOgold}{ITMOgold}, \textcolor{ITMOyellow}{ITMOyellow}, \textcolor{ITMOtomato}{ITMOtomato}, \textcolor{ITMOgreen}{ITMOgreen}.
+ \textcolor{ITMOorange}{ITMOorange}, \textcolor{ITMOyellow}{ITMOyellow},  \textcolor{ITMOgreen}{ITMOgreen}, \textcolor{ITMOcapri}{ITMOcapri}, \textcolor{ITMOviolet}{ITMOviolet}, \textcolor{ITMOpink}{ITMOpink}.
 
 \end{frame}
 
@@ -221,11 +217,11 @@ I have discovered a truly remarkable proof of this theorem which this frame is t
 
 
 \begin{frame}[plain]
-    \itmopolygons{
+    \itmobackgroundsnakes{
         \vfill
         \Huge{The End}
         \vfill
-        \includegraphics[scale=.5]{itmo/slogan.pdf}
+        \includegraphics[width=0.4\textwidth]{itmo/slogan.pdf}
     }
 \end{frame}
 

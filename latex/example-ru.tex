@@ -1,6 +1,6 @@
 % --------------------------------------------------------------------------
 % Шаблон презентации в стилистике Университета ИТМО
-% Версия шаблона 2.1. Также шаблон доступен на сайтах:
+% Версия шаблона 3.0. Также шаблон доступен на сайтах:
 % https://www.overleaf.com/read/rpkkfchcnbsc
 % https://www.overleaf.com/latex/templates/itmo-beamer-theme/fpttrgnmqwsb
 % https://github.com/AlexZabashta/ITMO-Beamer-theme
@@ -41,7 +41,7 @@
 
 
 % Рисунок для титульного слайда.
-\titlegraphic{\includegraphics[scale=.8]{itmo/logo_rus_vert_blue.pdf}}
+\titlegraphic{\includegraphics[width=0.2\textwidth]{itmo/logo_basic_russian_white.pdf}}
 
 
 % Поля title, author, subject, keywords используются при формировании pdf документа.
@@ -65,11 +65,6 @@
 \keywords{ITMO University, LaTex teamplate, beamer}
 
 
-% По умолчанию внизу каждого слайда пишется название презентации (\inserttitle).
-% Этот текст можно заменить на другой, например:
-\setfootlinetext{\insertsection}
-
-
 \begin{document}
 
 % [plain] - модификатор для создания пустого слайда (без нижней полосы).
@@ -82,7 +77,7 @@
 \end{frame}
 
 
-% \itmopolygons - команда для создания полигонального фона.
+% \itmobackgroundsnakes - команда для создания полигонального фона.
 % Используется для создания фона на первом (титульном) и последнем слайде.
 
 
@@ -91,9 +86,9 @@
 
 
 \begin{frame}[plain]
-	\itmopolygons{
+	\itmobackgroundsnakes{
 	\vfill
-		\includegraphics[height=0.2\paperheight]{itmo/logo_rus_vert_blue.pdf}
+		\includegraphics[width=0.2\textwidth]{itmo/logo_basic_russian_white.pdf}
 	\vfill
 		{\Large \textbf \inserttitle} 
 	\vfill
@@ -164,7 +159,7 @@ Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenati
 
 You can use main official predefined colors 
 \textcolor{ITMOblue}{ITMOblue} and \textcolor{ITMOred}{ITMOred}, and also
- \textcolor{ITMOorange}{ITMOorange}, \textcolor{ITMOsky}{ITMOsky}, \textcolor{ITMOpistachio}{ITMOpistachio}, \textcolor{ITMOaqua}{ITMOaqua}, \textcolor{ITMOice}{ITMOice}, \textcolor{ITMOgold}{ITMOgold}, \textcolor{ITMOyellow}{ITMOyellow}, \textcolor{ITMOtomato}{ITMOtomato}, \textcolor{ITMOgreen}{ITMOgreen}.
+ \textcolor{ITMOorange}{ITMOorange}, \textcolor{ITMOyellow}{ITMOyellow},  \textcolor{ITMOgreen}{ITMOgreen}, \textcolor{ITMOcapri}{ITMOcapri}, \textcolor{ITMOviolet}{ITMOviolet}, \textcolor{ITMOpink}{ITMOpink}.
 
 \end{frame}
 
@@ -249,11 +244,11 @@ I have discovered a truly remarkable proof of this theorem which this frame is t
 
 
 \begin{frame}[plain]
-    \itmopolygons{
+    \itmobackgroundsnakes{
         \vfill
         \Huge{The End}
         \vfill
-        \includegraphics[scale=.5]{itmo/slogan.pdf}
+        \includegraphics[width=0.4\textwidth]{itmo/slogan.pdf}
     }
 \end{frame}
 
